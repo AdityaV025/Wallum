@@ -12,6 +12,7 @@ Created By Aditya Verma on 06/10/21
 interface UnsplashApiInterface {
 
     companion object {
+        const val BASE_URL = "https://api.unsplash.com/"
         const val API_KEY = BuildConfig.UNSPLASH_ACCESS_KEY
     }
 

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.WallpaperListFragment">
+
+    <LinearLayout
+        android:id="@+id/search_query_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/primary">
+
+        <EditText
+            android:id="@+id/edit_query_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:cursorVisible="true"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="8dp"
+            android:fontFamily="@font/poppins"
+            android:gravity="center_vertical"
+            android:hint="@string/search_something"
+            android:inputType="text"
+            android:maxLines="1"
+            android:padding="17dp"
+            android:textColor="@color/white"
+            android:textColorHint="#C8C8C8"
+            android:textCursorDrawable="@null"
+            android:textSize="19sp" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search_query_container"
+        android:overScrollMode="never"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2" />
+
+</RelativeLayout>

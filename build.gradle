@@ -28,7 +28,7 @@ ext {
     glideVersion = '4.11.0'
     hiltAndroidXVersion = '1.0.0-alpha03'
     junitVersion = '4.13'
-    pagingVersion = '3.1.0-alpha04'
+    pagingVersion = '3.0.0-alpha05'
     retrofitVersion = '2.9.0'
     testExtJunitVersion = '1.1.1'
 }
