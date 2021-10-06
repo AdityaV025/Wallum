@@ -1,8 +1,14 @@
 package com.android.wallum.ui.main
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
+import android.os.Build
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
+import androidx.annotation.RequiresApi
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.android.wallum.R
@@ -24,6 +30,7 @@ class WallpaperListFragment : Fragment(R.layout.fragment_wallpaper_list),
     private var _binding: FragmentWallpaperListBinding? = null
     private val binding get() = _binding!!
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -33,6 +40,19 @@ class WallpaperListFragment : Fragment(R.layout.fragment_wallpaper_list),
         binding.apply {
             recyclerview.setHasFixedSize(true)
             recyclerview.adapter = adapter
+
+            if (!isNetworkConnected()){
+                noConnectionLayout.root.isVisible = true
+                recyclerview.isVisible = false
+            }
+
+            noConnectionLayout.retryConnectionButton.setOnClickListener {
+                if (isNetworkConnected()){
+                    noConnectionLayout.root.isVisible = false
+                    viewModel.searchPhotos("space")
+                    recyclerview.isVisible = true
+                }
+            }
 
             editQueryText.setOnKeyListener(object : View.OnKeyListener {
                 override fun onKey(view: View?, keyCode: Int, event: KeyEvent?): Boolean {
@@ -58,6 +78,14 @@ class WallpaperListFragment : Fragment(R.layout.fragment_wallpaper_list),
 
     override fun onItemClick(wallpaper: Wallpaper) {
         TODO("Not yet implemented")
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun isNetworkConnected(): Boolean {
+        val connectivityManager = activity?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork = connectivityManager.activeNetwork
+        val networkCapabilities = connectivityManager.getNetworkCapabilities(activeNetwork)
+        return networkCapabilities != null && networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
     }
 
     override fun onDestroyView() {
