@@ -50,7 +50,7 @@ class WallpaperListFragment : Fragment(R.layout.fragment_wallpaper_list),
             noConnectionLayout.retryConnectionButton.setOnClickListener {
                 if (isNetworkConnected()){
                     noConnectionLayout.root.isVisible = false
-                    viewModel.searchPhotos("space")
+                    viewModel.searchPhotos("random")
                     recyclerview.isVisible = true
                 }
             }

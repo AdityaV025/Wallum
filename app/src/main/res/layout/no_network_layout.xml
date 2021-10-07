@@ -16,8 +16,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:fontFamily="@font/poppins_medium"
-        android:text="Please check your internet connection"
-        android:textSize="17sp" />
+        android:text="You seem to be offline, please check your internet connection"
+        android:textSize="17sp"
+        android:gravity="center_horizontal"/>
 
     <Button
         android:id="@+id/retry_connection_button"
