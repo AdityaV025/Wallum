@@ -8,5 +8,25 @@
         android:id="@+id/wallpaperListFragment"
         android:name="com.android.wallum.ui.main.WallpaperListFragment"
         android:label="fragment_wallpaper_list"
-        tools:layout="@layout/fragment_wallpaper_list" />
+        tools:layout="@layout/fragment_wallpaper_list" >
+        <action
+            android:id="@+id/action_wallpaperListFragment_to_wallpaperDetailFragment"
+            app:destination="@id/wallpaperDetailFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/wallpaperDetailFragment"
+        android:name="com.android.wallum.ui.main.WallpaperDetailFragment"
+        android:label="fragment_wallpaper_detail"
+        tools:layout="@layout/fragment_wallpaper_detail" >
+        <action
+            android:id="@+id/action_wallpaperDetailFragment_to_wallpaperListFragment"
+            app:destination="@id/wallpaperListFragment"
+            app:enterAnim="@android:anim/slide_in_left" />
+        <argument
+            android:name="wallpaper"
+            app:argType="com.android.wallum.data.Wallpaper" />
+    </fragment>
 </navigation>

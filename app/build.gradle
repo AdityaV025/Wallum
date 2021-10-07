@@ -69,6 +69,9 @@ dependencies {
     // Paging 3
     implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
 
+    // Photoview
+    implementation "com.github.chrisbanes:PhotoView:$photoViewVersion"
+
 }
 
 kapt {

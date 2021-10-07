@@ -11,6 +11,7 @@ import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.android.wallum.R
 import com.android.wallum.data.Wallpaper
 import com.android.wallum.databinding.FragmentWallpaperListBinding
@@ -77,7 +78,8 @@ class WallpaperListFragment : Fragment(R.layout.fragment_wallpaper_list),
     }
 
     override fun onItemClick(wallpaper: Wallpaper) {
-        TODO("Not yet implemented")
+        val action = WallpaperListFragmentDirections.actionWallpaperListFragmentToWallpaperDetailFragment(wallpaper)
+        findNavController().navigate(action)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)

@@ -7,6 +7,7 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://www.jitpack.io" }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:7.0.0"
@@ -31,4 +32,5 @@ ext {
     pagingVersion = '3.0.0-alpha05'
     retrofitVersion = '2.9.0'
     testExtJunitVersion = '1.1.1'
+    photoViewVersion = '2.3.0'
 }
