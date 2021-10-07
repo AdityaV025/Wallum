@@ -65,6 +65,7 @@ class WallpaperAdapter(private val listener: OnItemClickListener) :
             binding.apply {
                 Glide.with(itemView)
                     .load(photo.urls.regular)
+                    .error(R.drawable.ic_error)
                     .centerCrop()
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .into(wallpaperDisplay)

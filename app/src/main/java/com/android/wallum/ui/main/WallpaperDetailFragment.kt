@@ -41,11 +41,13 @@ class WallpaperDetailFragment : Fragment(R.layout.fragment_wallpaper_detail) {
     private val args by navArgs<WallpaperDetailFragmentArgs>()
     private val viewModel by viewModels<WallpaperDetailViewModel>()
     private lateinit var progressBar : ProgressBar
+    private var _binding : FragmentWallpaperDetailBinding? = null
+    private val binding get() = _binding!!
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val binding = FragmentWallpaperDetailBinding.bind(view)
+        _binding = FragmentWallpaperDetailBinding.bind(view)
 
         progressBar = binding.progressbar
 
@@ -127,4 +129,8 @@ class WallpaperDetailFragment : Fragment(R.layout.fragment_wallpaper_detail) {
             })
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
