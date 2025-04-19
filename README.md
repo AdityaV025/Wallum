@@ -1,6 +1,6 @@
 ### Show some ❤️ and star the repo to show support for the project
 
-<img src="https://raw.githubusercontent.com/AdityaV025/Wallum/master/assets/Wallum%20Spotlight%20design.png?token=AJM5NN3IFDPWA6RVJY4VT7DBL4NMC">
+<img src="https://raw.githubusercontent.com/AdityaV025/Wallum/refs/heads/master/assets/Wallum%20Spotlight%20design.png">
 
 <h1 align="center"> Wallum Android App </h1>
 
